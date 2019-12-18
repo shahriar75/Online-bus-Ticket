@@ -1,0 +1,91 @@
+div.date_picker_opener {
+	width: 80%;
+	height: 100%;
+	border-radius: 3px;
+	margin-bottom: 1px;
+	padding-left: 3px;
+	font-family: arial;
+	font-size: 90%;
+	background-color: white;
+	cursor: pointer;
+}
+
+img.date_picker_opener_icon {
+	vertical-align: middle;
+	float: right;
+}
+
+div.date_picker_container {
+	position: absolute;
+	top: 65px;
+	left: 53%;
+	display: none;
+	width: 350px;
+	height: 350px;
+	font-size: 120%;
+	border: 1px solid black;
+	background-color: #444444;
+	z-index: 1;
+}
+
+div.date_picker_body {
+	width: 95%;
+	height: 70%;
+	border: 1px solid gray;
+	margin: 0% 2.5% 15% 2.5%;
+}
+
+div.date_selector {
+	display: flex;
+	width: 95%;
+	height: 10%;
+	margin: 5% 2.5% 5% 2.5%;
+}
+
+select.select_for_date_picker {
+	width: 49%;
+	height: 100%;
+	border-radius: 3px;
+	border: none;
+	font-size: 110%;
+	padding-left: 5px;
+	color: dimgray;
+}
+
+select.select_for_date_picker:focus {
+	outline: none;
+}
+
+table.date_picker {
+	width: 100%;
+	height: 100%;
+	color: white;
+	border-collapse: collapse;
+	text-align: center;
+}
+
+.date_picker tr, .date_picker td {
+	border: 1px solid darkslategray;
+}
+
+.date_picker th {
+	width: 14.28%;
+	height: 14.28%;
+	border: .5px solid darkgray;
+	text-align: center;
+}
+
+.date_picker td {
+	height: 14.28%;
+	font-size: 100%;
+	font-family: "sofia";
+}
+
+.date_picker td:nth-child(7) {
+	color: orangered;
+}
+
+
+.date_picker tr:nth-child(1) {
+	background-color: teal;
+}

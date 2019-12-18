@@ -1,0 +1,111 @@
+div.modal_log_in {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  padding-top: 10px;
+  left: 25%;
+  top: 10%;
+  width: 50%;
+  height: 80%;
+  overflow: auto;
+  background-color: rgba(255,255,255,1);
+}
+
+div.modal_log_in_header {
+  color: rgb(0,0,0);
+  font-size: 350%;
+  padding-left: 35%;
+  padding-top: 5%;
+}
+
+div.log_in_modal_container {
+  color: rgb(0,0,0);
+  margin-left: 10%;
+}
+
+div.log_in_modal_footer {
+  position: absolute;
+  bottom: 0;
+  background-color: #F1F1F1;
+  width: 100%;
+  height: 18%;
+}
+
+input[type=text].input_log_in, input[type=password].input_log_in {
+  width: 90%;
+  padding: 3%;
+  border: 2px solid #6B6161;
+  border-radius: 5px;
+  color: black;
+}
+
+input[type=text].input_log_in:focus, input[type=password].input_log_in:focus {
+  border: 2px solid #3BF900;
+}
+
+label.label_log_in {
+  color: #2E2B2B;
+  font-size: 120%;
+}
+
+button.button_log_in {
+  width: 90%;
+  padding: 3%;
+  margin-top: 5%;
+  margin-bottom: 2%;
+  background-color: #4CAF50;
+  color: #FFFFFF;
+  border: none;
+}
+
+button.button_log_in:hover, button.cancel_log_in:hover {
+  opacity: .8;
+}
+
+button.cancel_log_in {
+  width: 90px;
+  padding: 3%;
+  margin-left: 10%;
+  margin-top: 4%;
+  background-color: #F13030;
+  color: #FFFFFF;
+  border: none;
+}
+
+.close_log_in {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000000;
+  font-size: 35px;
+  font-weight: bold;
+  transition: transform .8s ease-in-out;
+}
+
+.close_log_in:hover {
+  color: #FA0101;
+  -webkit-transform:rotate(360deg);
+}
+
+.go_to_sign_in {
+  position: absolute;
+  right: 35px;
+  top: 25px;
+  color: #000000;
+}
+
+/* Add Zoom Animation */
+.animate_log_in {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom .6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}

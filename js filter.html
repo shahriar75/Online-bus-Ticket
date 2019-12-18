@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.box{
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myTable {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+#myTable th, #myTable td {
+  text-align: left;
+  padding: 12px;
+}
+
+#myTable tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
+}
+</style>
+</head>
+<body>
+
+<h2>My Customers</h2>
+<select id="input_name" onchange="myFunction()">
+<option value="">Select name...............</option>
+</select>
+
+<select id="input_country" onchange="myFunction()">
+<option value="">Select country............</option>
+</select>
+
+<table id="myTable">
+  <tr class="header">
+    <th style="width:50%;">Name</th>
+    <th style="width:40%;">Country</th>
+    <th style="width:10%;">No.</th>
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td>Germany</td><td>1</td>
+  </tr>
+  <tr>
+    <td>Berglunds snabbkop</td>
+    <td>Sweden</td><td>2</td>
+  </tr>
+  <tr>
+    <td>Island Trading</td>
+    <td>UK</td><td>3</td>
+  </tr>
+  <tr>
+    <td>Koniglich Essen</td>
+    <td>Germany</td><td>4</td>
+  </tr>
+  <tr>
+    <td>Laughing Bacchus Winecellars</td>
+    <td>Canada</td><td>5</td>
+  </tr>
+  <tr>
+    <td>Magazzini Alimentari Riuniti</td>
+    <td>Italy</td><td>6</td>
+  </tr>
+  <tr>
+    <td>North/South</td>
+    <td>UK</td><td>7</td>
+  </tr>
+  <tr>
+    <td>Paris specialites</td>
+    <td>France</td><td>8</td>
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td>Bangladesh</td><td>9</td>
+  </tr>
+  <tr>
+    <td>Berglunds snabbkop</td>
+    <td>India</td><td>10</td>
+  </tr>
+  <tr>
+    <td>Island Trading</td>
+    <td>USA</td><td>11</td>
+  </tr>
+  <tr>
+    <td>Koniglich Essen</td>
+    <td>USA</td><td>12</td>
+  </tr>
+  <tr>
+    <td>Laughing Bacchus Winecellars</td>
+    <td>India</td><td>13</td>
+  </tr>
+  <tr>
+    <td>Magazzini Alimentari Riuniti</td>
+    <td>Newzeland</td><td>14</td>
+  </tr>
+  <tr>
+    <td>North/South</td>
+    <td>UK</td><td>15</td>
+  </tr>
+  <tr>
+    <td>Paris specialites</td>
+    <td>UK</td><td>16</td>
+  </tr>
+</table>
+
+<script>
+
+name();
+country();
+
+function myFunction() {
+  var inputName, filterName, table, tr, tdName, i, txtValueName;
+  var inputCountry, filterCountry, tdCountry, txtValueCountry;
+  
+  inputName = document.getElementById("input_name");
+  inputCountry = document.getElementById("input_country");
+  dependentFilterHide(inputName);dependentFilterHide(inputCountry);
+  filterName = inputName.value.toUpperCase();
+  filterCountry = inputCountry.value.toUpperCase();
+  
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  
+  for (i = 0; i < tr.length; i++) {
+    tdName = tr[i].getElementsByTagName("td")[0];
+    tdCountry = tr[i].getElementsByTagName("td")[1];
+    
+    if (tdName && tdCountry) {
+      txtValueName = tdName.textContent || tdName.innerText;
+      txtValueCountry = tdCountry.textContent || tdCountry.innerText;
+      if (txtValueName.toUpperCase().indexOf(filterName) > -1 && 
+     	  txtValueCountry.toUpperCase().indexOf(filterCountry) > -1 ) {
+        tr[i].style.display = "";
+        dependentFilterShow(txtValueCountry, inputCountry);
+        dependentFilterShow(txtValueName, inputName);
+        
+      } else {
+        tr[i].style.display = "none";
+        
+        //dependentFilterHide(txtValueCountry, inputCountry);
+        //dependentFilterHide(txtValueName, inputName);
+      }
+    }       
+  }
+  console.log("########################################################");
+}
+
+
+function name(){
+var table = document.getElementById("myTable");
+var tr = table.getElementsByTagName("tr");
+
+for(var i = 1; i <tr.length; i++){
+	var td = table.rows[i].cells[0].innerHTML;
+    
+    var x = document.getElementById("input_name");
+    var option = document.createElement("option");
+    option.text = td;
+    x.add(option);
+}
+}
+
+function country(){
+var table = document.getElementById("myTable");
+var tr = table.getElementsByTagName("tr");
+
+for(var i = 1; i <tr.length; i++){
+	var td = table.rows[i].cells[1].innerHTML;
+    
+    var x = document.getElementById("input_country");
+    var option = document.createElement("option");
+    option.text = td;
+    x.add(option);
+}
+}
+
+function getPositionShow(string){
+for(var i=0;i<document.getElementById("input_country").length;i++)
+{
+var x=document.getElementById("input_country").options[i].value;
+if(x==string){
+document.getElementById("input_name").options[i].hidden =false;
+document.getElementById("input_country").options[i].hidden =false;}
+}
+}
+
+function dependentFilterShow(td, select) {
+	for (var i = 0; i < select.length; i++) {
+		var x = select.options[i].value;
+		if (x == td) {
+			select.options[i].hidden = false;
+      break;
+            console.log("*****"+x + ", "+ td+ select.options[i].hidden);
+		}
+	}
+}
+
+function dependentFilterHide(select) {
+	for (var i = 1; i < select.length; i++) {
+		var x = select.options[i].value;
+			select.options[i].hidden = true;
+	}
+}
+</script>
+
+</body>
+</html>

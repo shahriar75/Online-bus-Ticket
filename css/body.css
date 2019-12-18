@@ -1,0 +1,29 @@
+body {  
+	/*background-size: 1280px 820px;*/
+	background-size: 112%;
+	background-position: left -50px top -50px;
+    background-image: url('../images/background_2.svg');
+    background-repeat: repeat;
+    background-attachment: fixed;
+}
+div.common_div {
+	position: absolute;
+	left: 20%;
+	width: 60%;
+	height: 515px;
+	height: 87%;
+	box-shadow: 2px 2px 1px grey;
+	margin: 0 auto;
+	background-color: rgba(0, 0, 0, .6);
+	color: white;
+	border-top: 1px solid white;
+	border-radius: 5px;
+}
+
+div.modal_curtain {
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.6);
+}
